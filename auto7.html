@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (() => {
+            const s = ";\n            window.count = window.count === undefined ? 0 : window.count + 1;\n            const count = window.count;\n            for (let i = 0; i < 999; i++) {\n                console.log(\"start writing \" + count);\n                document.write(\"<script>(() => { const s = \" + JSON.stringify(s) + s + \"</script\" + \">\");\n                console.log(\"finish writing \" + count);\n            }\n        })();\n";
+            window.count = window.count === undefined ? 0 : window.count + 1;
+            const count = window.count;
+            for (let i = 0; i < 999; i++) {
+                console.log("start writing " + count);
+                document.write("<script>(() => { const s = " + JSON.stringify(s) + s + "</script" + ">");
+                console.log("finish writing " + count);
+            }
+        })();
+    </script>
+</body>
+</html>
